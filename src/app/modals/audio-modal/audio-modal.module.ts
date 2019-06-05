@@ -5,13 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AudioPage } from './audio.page';
+import { AudioModalPage } from './audio-modal.page';
 import { ComponentModule } from 'src/app/components/component.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: AudioPage
+    component: AudioModalPage
   }
 ];
 
@@ -23,6 +23,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ComponentModule
   ],
-  declarations: [AudioPage]
+  declarations: [AudioModalPage]
 })
-export class AudioPageModule {}
+export class AudioModalPageModule {}

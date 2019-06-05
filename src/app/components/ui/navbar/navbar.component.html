@@ -1,5 +1,10 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button *ngIf="hasAudioLoaded | async">
+        <ion-icon name="play-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title *ngIf="scrolled">{{ title }}</ion-title>
     <ion-buttons slot="end">
       <ion-button *ngIf="!modal" (click)="openNotificationModal()">

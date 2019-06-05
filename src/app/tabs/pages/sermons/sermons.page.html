@@ -14,7 +14,7 @@
                                 <ion-card-subtitle>{{ sermon.date | date }}</ion-card-subtitle>
                             </ion-col>
                             <ion-col size="3" style="text-align: right">
-                                <ion-button (click)="displayAudioModal(sermon.sermonAudio)" color="dark">
+                                <ion-button (click)="displayAudioModal(sermon.sermonAudio, sermon.sermonPhoto)" color="dark">
                                     <ion-icon name="play"></ion-icon>
                                 </ion-button>
                             </ion-col>
@@ -38,7 +38,7 @@
                         <ion-label style="width: 100%">{{ sermon.title }}</ion-label>
                     </ion-col>
                     <ion-col size="3">
-                        <ion-button (click)="displayAudioModal(sermon.sermonAudio)" color="dark" size="small" fill="outline">
+                        <ion-button (click)="displayAudioModal(sermon.sermonAudio, sermon.sermonPhoto)" color="dark" size="small" fill="outline">
                             <ion-icon name="play"></ion-icon>
                         </ion-button>
                     </ion-col>

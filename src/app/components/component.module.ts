@@ -2,18 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './ui/navbar/navbar.component';
 import { IonicModule } from '@ionic/angular';
-import { NotificationsPageModule } from '../modals/notifications/notifications.module';
+import { AudioPlayerComponent } from './ui/audio-player/audio-player.component';
 
 @NgModule({
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    AudioPlayerComponent
   ],
   imports: [
     CommonModule,
     IonicModule
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    AudioPlayerComponent
   ]
 })
 export class ComponentModule { }

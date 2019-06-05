@@ -21,10 +21,12 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.statusBar.backgroundColorByHexString("#ffffff");
-      this.splashScreen.hide();
-      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      if (this.platform.is("cordova")) {
+        this.statusBar.styleDefault();
+        this.statusBar.backgroundColorByHexString("#ffffff");
+        this.splashScreen.hide();
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      }
     });
 
   }

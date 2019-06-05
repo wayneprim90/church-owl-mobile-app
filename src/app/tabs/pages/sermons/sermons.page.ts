@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SermonsService } from 'src/app/services/sermons.service';
 import { ModalController } from '@ionic/angular';
-import { AudioPage } from 'src/app/modals/audio/audio.page';
+import { AudioModalPage } from 'src/app/modals/audio-modal/audio-modal.page';
 
 @Component({
   selector: 'app-home',
@@ -31,12 +31,14 @@ export class SermonsPage implements OnInit {
     slider.startAutoplay();
   }
 
-  async displayAudioModal(audioURL) {
+  async displayAudioModal(audioURL, photoURL) {
     console.log(audioURL)
     const m = await this.modalCtrl.create({
-      component: AudioPage,
+      component: AudioModalPage,
       componentProps: {
-        audioURL: audioURL
+        audioURL: audioURL,
+        photoURL: photoURL,
+        loadAudioOnPresented : true
       }
     })
     return await m.present();
