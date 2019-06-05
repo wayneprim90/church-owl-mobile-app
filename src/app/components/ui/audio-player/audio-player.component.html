@@ -1,3 +1,9 @@
-<p>
-  audio-player works!
-</p>
+<ion-content padding color="dark">
+  <ion-card color="dark">
+    <img src="{{photoURL}}" alt="">
+  </ion-card>
+
+  <ion-button color="tertiary" (click)="clearAudio()">
+    Remove Loaded Audio
+  </ion-button>
+</ion-content>

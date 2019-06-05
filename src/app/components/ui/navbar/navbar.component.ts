@@ -5,6 +5,7 @@ import { NotificationsPage } from 'src/app/modals/notifications/notifications.pa
 import { AudioService } from 'src/app/services/audio.service';
 import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
+import { AudioModalPage } from 'src/app/modals/audio-modal/audio-modal.page';
 
 @Component({
   selector: 'app-navbar',
@@ -15,6 +16,8 @@ export class NavbarComponent implements OnInit {
   @Input() title;
   @Input() scrolled;
   @Input() modal;
+  @Input() theme;
+  @Input() noBorder;
 
   hasAudioLoaded : Observable<boolean>;
 
@@ -35,5 +38,16 @@ export class NavbarComponent implements OnInit {
 
   closeNotificationsModal() {
     this.modalCtrl.dismiss();
+  }
+
+  async openAudioModal() {
+    const modal = await this.modalCtrl.create({
+      component: AudioModalPage, 
+      componentProps: {
+        loadAudioOnPresented: false
+      }
+    })
+
+    return await modal.present()
   }
 }

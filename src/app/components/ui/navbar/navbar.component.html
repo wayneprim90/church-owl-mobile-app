@@ -1,7 +1,7 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header [attr.no-border]="noBorder">
+  <ion-toolbar color="{{theme? theme : null}}">
     <ion-buttons slot="start">
-      <ion-button *ngIf="hasAudioLoaded | async">
+      <ion-button *ngIf="hasAudioLoaded | async" (click)="openAudioModal()">
         <ion-icon name="play-circle"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -11,7 +11,7 @@
         <ion-icon color="tertiary" name="notifications-outline"></ion-icon>
       </ion-button>
       <ion-button *ngIf="modal" (click)="closeNotificationsModal()">
-        <ion-icon color="tertiary" name="close"></ion-icon>
+        <ion-icon color="{{theme == 'dark' ? light : tertiary}}" size="large" name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

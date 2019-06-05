@@ -1,5 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { AudioService } from 'src/app/services/audio.service';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-audio-modal',
@@ -7,19 +7,19 @@ import { AudioService } from 'src/app/services/audio.service';
   styleUrls: ['./audio-modal.page.scss'],
 })
 export class AudioModalPage implements OnInit {
+  
+  @Input() loadAudio;
   @Input() audioURL;
   @Input() photoURL;
-  @Input() loadAudioOnPresented;
   
-  constructor(private audioService: AudioService) {}
+  constructor(private modalCtrl : ModalController) {}
 
   ngOnInit() {
-    if (this.loadAudioOnPresented) {
-      this.load();
-    }
+    
   }
 
-  load() {
-    this.audioService.load(this.audioURL);
+  dismissModal() {
+    this.modalCtrl.dismiss();
   }
+
 }

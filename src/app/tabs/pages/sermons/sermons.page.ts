@@ -32,13 +32,13 @@ export class SermonsPage implements OnInit {
   }
 
   async displayAudioModal(audioURL, photoURL) {
-    console.log(audioURL)
+    
     const m = await this.modalCtrl.create({
       component: AudioModalPage,
       componentProps: {
+        loadAudio: true,
         audioURL: audioURL,
-        photoURL: photoURL,
-        loadAudioOnPresented : true
+        photoURL: photoURL
       }
     })
     return await m.present();

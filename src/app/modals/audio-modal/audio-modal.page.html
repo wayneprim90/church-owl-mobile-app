@@ -1,5 +1,5 @@
-<app-navbar title="" [modal]="true"></app-navbar>
+<app-navbar title="" [modal]="true" theme="dark" [noBorder]="true"></app-navbar>
 
 <ion-content>
-
+    <app-audio-player [audioURL]="audioURL" [loadAudio]="loadAudio" (audioCleared)="dismissModal()" [photoURL]="photoURL"></app-audio-player>
 </ion-content>

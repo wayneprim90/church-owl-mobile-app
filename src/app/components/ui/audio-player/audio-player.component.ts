@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { AudioService } from 'src/app/services/audio.service';
 
 @Component({
   selector: 'app-audio-player',
@@ -6,9 +7,51 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./audio-player.component.scss'],
 })
 export class AudioPlayerComponent implements OnInit {
+  @Input() audioURL;
+  @Input() photoURL;
+  @Input() loadAudio;
 
-  constructor() { }
+  @Output() audioCleared = new EventEmitter();
 
-  ngOnInit() {}
+  constructor(private audioService: AudioService) { }
+
+  ngOnInit() {
+    if (this.loadAudio) {
+      this.load();
+    } else {
+      this.audioURL = this.audioService.theAudioObj.audioURL;
+      this.photoURL = this.audioService.theAudioObj.photoURL;
+    }
+  }
+
+  load() {
+    this.audioService.theAudioObj = {
+      title: "Title",
+      audioURL: this.audioURL,
+      photoURL: this.photoURL
+    }
+    this.audioService.load();
+  }
+
+  play() {
+
+  }
+
+  stop() {
+
+  }
+
+  pause() {
+
+  }
+
+  clearAudio() {
+    this.audioService.removeLoadedAudio();
+    this.clearedAudio();
+  }
+
+  clearedAudio() {
+    this.audioCleared.emit("Done");
+  }
 
 }
