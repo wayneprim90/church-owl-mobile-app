@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from "@ionic/angular";
 import { SermonsService } from 'src/app/services/sermons.service';
+import { ModalController } from '@ionic/angular';
 import { AudioPage } from 'src/app/modals/audio/audio.page';
 
 @Component({
@@ -17,10 +17,7 @@ export class SermonsPage implements OnInit {
   recentSermons = [];
 
   slideOpts = {
-    speed: 1000,
-    autoPlay: {
-      delay: 1000
-    }
+    speed: 3000
   }
 
   constructor(private sermonsService : SermonsService, private modalCtrl : ModalController) {
@@ -28,31 +25,21 @@ export class SermonsPage implements OnInit {
     this.recentSermons = this.sermonsService.sermons.slice(0,2);
   }
 
-  ngOnInit() {
-
-  }
-
-  async openAudioModal(photo, audio) {
-    const modal = await this.modalCtrl.create({
-      component: AudioPage,
-      componentProps: {
-        photo: photo,
-        audio: audio
-      }
-    })
-    return await modal.present();
-  }
-
-  contentScrolled(event) {
-    if (event.detail.scrollTop > 50) {
-      this.scrolled = true;
-    } else {
-      this.scrolled = false;
-    }
-  }
+  ngOnInit() {}
 
   slidesLoaded(slider) {
     slider.startAutoplay();
+  }
+
+  async displayAudioModal(audioURL) {
+    console.log(audioURL)
+    const m = await this.modalCtrl.create({
+      component: AudioPage,
+      componentProps: {
+        audioURL: audioURL
+      }
+    })
+    return await m.present();
   }
 
 }

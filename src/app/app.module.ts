@@ -10,10 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotificationsPageModule } from './modals/notifications/notifications.module';
 import { AudioPageModule } from './modals/audio/audio.module';
-import { FileTransfer } from '@ionic-native/file-transfer/ngx';
-import { File } from "@ionic-native/file/ngx";
-import { Media } from "@ionic-native/media/ngx";
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
+import { Media } from "@ionic-native/media/ngx";
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,10 +20,8 @@ import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
   providers: [
     StatusBar,
     SplashScreen,
-    FileTransfer,
-    File,
-    Media,
     ScreenOrientation,
+    Media,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

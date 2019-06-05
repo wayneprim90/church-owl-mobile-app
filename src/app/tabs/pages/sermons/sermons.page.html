@@ -1,10 +1,8 @@
 <app-navbar title="Sermons" scrolled="scrolled"></app-navbar>
 
-<ion-content [scrollEvents]="true" (ionScroll)="contentScrolled($event)">
-
+<ion-content>
     <div class="hero-wrap" style="background-image: url('http://chittagongit.com/download/387222');"></div>
     
-
     <ion-slides #sermonSlider pager="true" [options]="slideOpts" (ionSlidesDidLoad)="slidesLoaded(sermonSlider)">
         <ion-slide *ngFor="let sermon of recentSermons" style="padding-bottom: 20px">
             <ion-card style="width: 100%">
@@ -16,7 +14,7 @@
                                 <ion-card-subtitle>{{ sermon.date | date }}</ion-card-subtitle>
                             </ion-col>
                             <ion-col size="3" style="text-align: right">
-                                <ion-button (click)="openAudioModal(sermon.sermonPhoto, sermon.sermonAudio)" color="dark">
+                                <ion-button (click)="displayAudioModal(sermon.sermonAudio)" color="dark">
                                     <ion-icon name="play"></ion-icon>
                                 </ion-button>
                             </ion-col>
@@ -40,7 +38,7 @@
                         <ion-label style="width: 100%">{{ sermon.title }}</ion-label>
                     </ion-col>
                     <ion-col size="3">
-                        <ion-button (click)="openAudioModal(sermon.sermonPhoto, sermon.sermonAudio)" color="dark" size="small" fill="outline">
+                        <ion-button (click)="displayAudioModal(sermon.sermonAudio)" color="dark" size="small" fill="outline">
                             <ion-icon name="play"></ion-icon>
                         </ion-button>
                     </ion-col>
@@ -48,6 +46,5 @@
             </ion-grid>
         </ion-item>
     </ion-list>
-
     
 </ion-content>
