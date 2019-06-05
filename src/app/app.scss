@@ -1,0 +1,41 @@
+// App Styles
+// ----------------------------------------------------------------------------
+// Put style rules here that you want to apply to the entire application. These 
+// styles are for the entire app and not just one component. Additionally, this 
+// file can hold Sass mixins, functions, and placeholder classes to be imported 
+// and used throughout the application.
+
+.hero-wrap{
+    width: 100%;
+    height: 200px;
+    background: #eee;
+    border-bottom: 1px solid #dfdfdf;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+ion-card-title{
+    font-size: 22px;
+}
+
+ion-card-header{
+    text-align: left;
+}
+
+ion-item.notificationListItem {
+    --inner-padding-top: 20px;
+    --inner-padding-bottom: 20px;
+    
+    ion-text.notificationText {
+        h5 {
+            margin: 0;
+            font-weight: bold;
+        }
+        p {
+            margin: 0;
+            color: #999;
+            font-size: 12px;
+        }
+    }
+}

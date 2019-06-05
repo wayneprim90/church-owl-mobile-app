@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="scrolled">{{ title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="!modal" (click)="openNotificationModal()">
+        <ion-icon color="tertiary" name="notifications-outline"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="modal" (click)="closeNotificationsModal()">
+        <ion-icon color="tertiary" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

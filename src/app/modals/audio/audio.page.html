@@ -1,0 +1,7 @@
+<app-navbar [modal]="true" [title]="audioName ? audioName : null" scrolled="true"></app-navbar>
+
+<ion-content padding>
+  <ion-button *ngIf="!exists" (click)="download()" color="primary">Download</ion-button>
+  <ion-button *ngIf="exists" (click)="play()" color="success"> Play </ion-button>
+  {{message}}
+</ion-content>
